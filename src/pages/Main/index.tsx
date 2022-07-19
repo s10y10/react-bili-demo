@@ -6,7 +6,7 @@ import FocusGameList from "./FocusGameList";
 import { getGameList } from "../../api/index";
 
 export default function Main() {
-  const [gameData, setGameData] = useState<number[]>([]);
+  const [gameData, setGameData] = useState<any>([]);
   const [tab, setTab] = useState("新游");
   const changeTab = (tabName: string) => {
     setTab(tabName);

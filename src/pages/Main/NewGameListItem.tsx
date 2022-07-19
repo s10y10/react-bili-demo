@@ -1,3 +1,7 @@
-export default function NewGameListItem(props) {
-  return <div></div>;
+export default function NewGameListItem({ source }: any) {
+  return (
+    <div className="item-new_game-content">
+      <img src={source.img} />
+    </div>
+  );
 }
