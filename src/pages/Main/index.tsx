@@ -1,41 +1,44 @@
-import { useEffect, useState } from "react";
-import { MainWrapper } from "./style";
-import classNames from "classnames";
-import NewGameList from "./NewGameList";
-import FocusGameList from "./FocusGameList";
-import { getGameList } from "../../api/index";
+import { useEffect, useState } from 'react';
+import { MainWrapper } from './style';
+import classNames from 'classnames';
+import NewGameList from './NewGameList';
+import FocusGameList from './FocusGameList';
+import { getGameList } from '../../api/index';
 
 export default function Main() {
   const [gameData, setGameData] = useState<any>([]);
-  const [tab, setTab] = useState("新游");
+  const [focusData, setFocusData] = useState<any>([]);
+  const [tab, setTab] = useState('新游');
   const changeTab = (tabName: string) => {
     setTab(tabName);
   };
+
   useEffect(() => {
     (async () => {
       const { data } = await getGameList();
       setGameData(data);
+      setFocusData(data.slice(0, 3));
     })();
   }, []);
 
   return (
-    <MainWrapper className="main-tab">
+    <MainWrapper className='main-tab'>
       <ul>
         <li
-          className={classNames({ active: tab === "新游" })}
-          onClick={changeTab.bind(null, "新游")}
+          className={classNames({ active: tab === '新游' })}
+          onClick={changeTab.bind(null, '新游')}
         >
           新游
         </li>
         <li
-          className={classNames({ active: tab === "关注" })}
-          onClick={changeTab.bind(null, "关注")}
+          className={classNames({ active: tab === '关注' })}
+          onClick={changeTab.bind(null, '关注')}
         >
           关注
         </li>
       </ul>
-      {tab === "新游" && <NewGameList source={gameData} />}
-      {tab === "关注" && <FocusGameList />}
+      {tab === '新游' && <NewGameList source={gameData} />}
+      {tab === '关注' && <FocusGameList source={focusData} />}
     </MainWrapper>
   );
 }
