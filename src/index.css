@@ -10,6 +10,10 @@
   display: none;
 }
 
+html{
+  touch-action: manipulation;
+}
+
 html,body{
   width: 100%;
   height: 100%;
