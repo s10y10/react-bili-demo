@@ -1,19 +1,17 @@
 {
   "name": "react-game-demo",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
-    "preinstall": "node ./preinstall.js",
     "dev": "vite --host --port=3001",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
   "engines": {
-    "node": "16.x"
+    "node": ">=16"
   },
   "dependencies": {
     "antd-mobile": "^5.18.0",
-    "axios": "^0.27.2",
     "classnames": "^2.3.1",
     "font-awesome": "^4.7.0",
     "react": "^18.0.0",
