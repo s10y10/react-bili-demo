@@ -10,6 +10,7 @@ import {
   useRef,
   useState,
 } from 'react';
+import React from 'react';
 import { HooksDemoWrapper } from './style';
 
 type ReducerAction = 'decrement' | 'increment';
@@ -33,6 +34,7 @@ const themes = {
 const Context = createContext(themes.light);
 
 export default function HooksDemo() {
+  // effect处理函数
   const consoleDiv = (time: string) => {
     const div = document.getElementById('stateDiv');
     console.log(time, div?.innerHTML);
@@ -60,7 +62,7 @@ export default function HooksDemo() {
 
   const refContainer = useRef(null);
   useEffect(() => {
-    console.log(refContainer.current);
+    console.log('refContainer', refContainer.current);
   }, []);
 
   return (
@@ -71,9 +73,9 @@ export default function HooksDemo() {
           id='stateDiv'
           onClick={() => setState((pre) => pre + 1)}
         >
-          state:{state}
+          改变state:{state}
         </button>
-        <div>memoizedValue:{memoizedValue}</div>
+        <div>缓存的memoizedValue:{memoizedValue}</div>
         <button
           onClick={() =>
             setTheme((pre) =>
@@ -81,35 +83,36 @@ export default function HooksDemo() {
             )
           }
         >
-          theme
+          改变theme
         </button>
-        <div>{countState.count}</div>
+        <div>useReducer的值{countState.count}</div>
         <button onClick={() => dispatch({ type: 'decrement' })}>
-          decrement
+          decrementReducer
         </button>
         <button onClick={() => dispatch({ type: 'increment' })}>
-          increment
+          incrementReducer
         </button>
-        <ContextFC onCallBack={memoizedCallback}></ContextFC>
+        <ChildFC onCallBack={memoizedCallback}></ChildFC>
       </HooksDemoWrapper>
     </Context.Provider>
   );
 }
 
-function ContextFC({ onCallBack }: { onCallBack: Function }) {
+// 使用React.memo后,只要state不改变,子组件就不会重新render
+const ChildFC = React.memo(({ onCallBack }: { onCallBack: Function }) => {
   console.log('子组件reRender');
   const theme = useContext(Context);
   const id = useId();
   return (
-    <div id={id} style={{ display: 'flex' }}>
-      <div style={{ background: theme, width: '20px', height: '20px' }}></div>
+    <div id={id} style={{ display: 'flex', color: '#fff' }}>
+      <div style={{ background: theme }}>Context里的颜色</div>
       <button
         onClick={() => {
           onCallBack();
         }}
       >
-        onCallBack
+        调用父级传来的CallBack
       </button>
     </div>
   );
-}
+});
