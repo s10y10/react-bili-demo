@@ -3,7 +3,7 @@ import { MainWrapper } from './style';
 import classNames from 'classnames';
 import NewGameList from './NewGameList';
 import FocusGameList from './FocusGameList';
-import { getGameList } from '../../api/index';
+import { getGameList } from '../../api';
 
 export default function Main() {
   const [gameData, setGameData] = useState<any>([]);
