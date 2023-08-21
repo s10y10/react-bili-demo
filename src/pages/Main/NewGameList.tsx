@@ -1,12 +1,13 @@
-import { NewGameListWrapper, NewGameListItemWrapper } from "./style";
-import NewGameListItem from "./NewGameListItem";
+import { NewGameListWrapper, NewGameListItemWrapper } from './style';
 
 export default function NewGameList({ source }: any) {
   const renderItem = () => {
     return source.map((item: any) => {
       return (
-        <NewGameListItemWrapper className="item-new_game" key={item.id}>
-          <NewGameListItem source={item}></NewGameListItem>
+        <NewGameListItemWrapper className='item-new_game' key={item.id}>
+          <div className='item-new_game-content'>
+            <img src={item.img} />
+          </div>
         </NewGameListItemWrapper>
       );
     });

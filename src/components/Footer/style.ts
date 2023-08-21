@@ -4,21 +4,19 @@ export const FooterWrapper = styled.div`
   width: 100%;
   height: 50px;
   position: fixed;
-  bottom: 0;
+  bottom: 10px;
   left: 0;
   display: flex;
   z-index: 1000;
+  flex-shrink: 0;
   a {
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: flex-end;
     &.active {
       color: #20aae2;
-    }
-    i {
-      font-size: 2em;
     }
   }
 `;

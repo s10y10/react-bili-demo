@@ -8,6 +8,7 @@ export const MainWrapper = styled.div`
     display: flex;
     justify-content: space-around;
     list-style: none;
+    margin-bottom: 6px;
     li {
       &.active {
         color: blue;
@@ -19,7 +20,7 @@ export const MainWrapper = styled.div`
 
 export const NewGameListWrapper = styled.section`
   width: 100%;
-  height: calc(100% - 48px - 50px);
+  height: calc(100% - 20px - 6px - 50px);
   display: flex;
   flex-direction: column;
   padding: 0 10px;
@@ -29,11 +30,10 @@ export const NewGameListWrapper = styled.section`
 export const NewGameListItemWrapper = styled.div`
   width: 100%;
   display: flex;
-  flex-direction: column;
   .item-new_game-content {
     width: 100%;
     display: flex;
-    flex-direction: column;
+    margin-top: 6px;
     img {
       max-width: 100%;
       border-radius: 8px;

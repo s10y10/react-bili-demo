@@ -9,3 +9,8 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <App />
   </BrowserRouter>
 );
+
+window.addEventListener('contextmenu', function (e) {
+  console.log(e);
+  e.preventDefault();
+});
