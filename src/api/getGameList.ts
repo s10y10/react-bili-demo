@@ -1,5 +1,15 @@
-import { img1, img2, img3, img4, img5 } from '../config';
-import { icon1, icon2, icon3, icon4, icon5 } from '../config';
+import {
+  img1,
+  img2,
+  img3,
+  img4,
+  img5,
+  icon1,
+  icon2,
+  icon3,
+  icon4,
+  icon5,
+} from '../config';
 
 export function getGameList() {
   return Promise.resolve({ data });

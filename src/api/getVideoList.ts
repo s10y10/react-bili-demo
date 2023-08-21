@@ -1,5 +1,4 @@
-import { pic1, pic2, pic3 } from '../config';
-import { userImg1, userImg2, userImg3 } from '../config';
+import { pic1, pic2, pic3, userImg1, userImg2, userImg3 } from '../config';
 
 export function getVideoList() {
   return Promise.resolve({ data });

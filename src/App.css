@@ -3,6 +3,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  background: linear-gradient(to bottom, #b8faff, #7fd0fb 60%, #e6f1fa);
 }
 
 .App-logo {

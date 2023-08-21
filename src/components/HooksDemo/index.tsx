@@ -1,15 +1,15 @@
 import {
-  useState,
-  useEffect,
-  useLayoutEffect,
-  useContext,
-  useReducer,
+  createContext,
   useCallback,
-  useMemo,
-  useRef,
+  useContext,
+  useEffect,
   useId,
+  useLayoutEffect,
+  useMemo,
+  useReducer,
+  useRef,
+  useState,
 } from 'react';
-import { createContext } from 'react';
 import { HooksDemoWrapper } from './style';
 
 type ReducerAction = 'decrement' | 'increment';
